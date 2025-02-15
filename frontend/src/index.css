@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .heading {
+    @apply text-xl md:text-3xl 2xl:text-5xl text-mainBlue;
+  }
+
+  /* .btnGradient {
+    @apply bg-gradient-to-r 
+  } */
+}
