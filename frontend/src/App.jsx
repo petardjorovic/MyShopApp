@@ -1,7 +1,12 @@
+import NavbarComponent from "./components/NavbarComponent";
+import { Outlet } from "react-router-dom";
+
 function App() {
   return (
     <div>
-      <h1 className="">Hello</h1>
+      <NavbarComponent />
+      <Outlet />
+      {/* //TODO: Footer */}
     </div>
   );
 }

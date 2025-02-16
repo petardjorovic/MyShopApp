@@ -8,7 +8,7 @@ export default {
         mainYellow: "#EDA415",
         mainRed: "#C33131",
         blackTextColor: "#292D32",
-        whiteTextColor: "FFFFFF",
+        whiteTextColor: "#FFFFFF",
         blueTextColor: "1B5A7D",
         lightBlue: "#E2F4FF",
         lightGreen: "#30BD57",
