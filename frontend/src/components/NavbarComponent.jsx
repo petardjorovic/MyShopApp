@@ -1,5 +1,11 @@
 import React from "react";
 import HeadingTopComponent from "./HeadingTopComponent";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 // logo
 import logo from "../assets/finallogo.svg";
@@ -7,13 +13,14 @@ import logo from "../assets/finallogo.svg";
 // icons
 import { CiUser, CiHeart, CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import CategoryComponent from "./CategoryComponent";
 
 function NavbarComponent() {
   return (
     <div className="">
       <HeadingTopComponent />
-      <nav className="bg-mainBlue md:h-[100px]">
-        <div className="container mx-auto flex flex-col md:flex-row items-center h-full justify-between">
+      <nav className="bg-mainBlue h-full md:h-full lg:h-[100px] py-[10px]">
+        <div className="container mx-auto flex flex-col md:flex-col lg:flex-row items-center h-full gap-[20px]  justify-between">
           {/* logo */}
           <Link to={"/"}>
             <img src={logo} alt="logo" />
@@ -35,10 +42,22 @@ function NavbarComponent() {
           <div>
             <ul className="flex-center gap-[20px]">
               <li className="flex-center gap-[10px]">
-                <CiUser size={25} color="white" />
-                <Link to={"/"} className="text-whiteTextColor">
-                  Sign In
-                </Link>
+                <SignedOut>
+                  <SignInButton />
+                </SignedOut>
+                <SignedIn>
+                  <UserButton
+                    showName={true}
+                    appearance={{
+                      elements: {
+                        avatarBox: "w-[40px] h-[40px]",
+                      },
+                      variables: {
+                        colorText: "#EDA415",
+                      },
+                    }}
+                  />
+                </SignedIn>
               </li>
               <li className="flex-center gap-[10px]">
                 <div className="flex-center">
@@ -62,6 +81,7 @@ function NavbarComponent() {
           </div>
         </div>
       </nav>
+      <CategoryComponent />
     </div>
   );
 }
