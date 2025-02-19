@@ -8,7 +8,7 @@ import {
 } from "@clerk/clerk-react";
 
 // logo
-import logo from "../assets/finallogo.svg";
+import logo from "../assets/Logo.svg";
 
 // icons
 import { CiUser, CiHeart, CiShoppingCart } from "react-icons/ci";

@@ -12,7 +12,9 @@ const allProducts = async (req, res, next) => {
 const singleProducts = async (req, res, next) => {
   const { productId } = req.params;
   try {
-    const product = await Product.find({ id: productId }).lean().select("-_id");
+    const [product] = await Product.find({ id: productId })
+      .lean()
+      .select("-_id");
     res.send(product);
   } catch (err) {
     console.log(err);

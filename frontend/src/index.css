@@ -15,7 +15,18 @@
     @apply bg-mainYellow text-blackTextColor text-xs font-medium me-2 px-2 py-0.5 rounded-full;
   }
 
-  /* .btnGradient {
-    @apply bg-gradient-to-r 
-  } */
+  .loader {
+    @apply w-[75px] aspect-[1] rounded-full border-8 border-lightBlue border-r-mainYellow;
+    animation: l2 1s infinite linear;
+  }
+
+  .heart-icon {
+    @apply inline-flex justify-center items-center rounded-full bg-gray-300 w-7 h-7 p-1;
+  }
+}
+
+@keyframes l2 {
+  to {
+    transform: rotate(1turn);
+  }
 }

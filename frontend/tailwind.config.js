@@ -13,6 +13,17 @@ export default {
         lightBlue: "#E2F4FF",
         lightGreen: "#30BD57",
       },
+      aspectRatio: {
+        1: "1", // omoguci aspect ratio 1:1
+      },
+      animation: {
+        rotate: "l2 1s infinite linear", // dodajte animaciju rotacije
+      },
+      keyframes: {
+        l2: {
+          "100%": { transform: "rotate(360deg)" }, // kljucni frame za rotaciju
+        },
+      },
     },
   },
   plugins: [],

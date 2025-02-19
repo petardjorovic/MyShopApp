@@ -22,15 +22,15 @@ function CategoryComponent() {
     setIsActiveCategory(!isActiveCategory);
   }
   return (
-    <div className="bg-slate-200 py-[20px]">
-      <div className="container mx-auto flex flex-col items-center gap-[20px] h-full lg:flex-row transition-all duration-300">
+    <div className="bg-slate-200 py-[10px]">
+      <div className="container mx-auto flex flex-col items-center gap-[20px] h-full lg:flex-row">
         <button
-          className="bg-mainBlue px-[24px] py-[12px] text-whiteTextColor rounded-lg hover:bg-mainYellow transition-all duration-300"
+          className="bg-mainBlue px-[16px] py-[6px] text-whiteTextColor rounded-lg hover:bg-mainYellow transition-all duration-300"
           onClick={handleActiveCategory}
         >
           {isActiveCategory ? "Hide" : "Show"} Categories
         </button>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-[10px] transition-all duration-300">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-[10px]">
           {isActiveCategory ? (
             <li className="bg-mainBlue px-[24px] py-[12px] text-center cursor-pointer rounded-lg text-whiteTextColor w-[250px] hover:bg-mainYellow transition-all duration-300">
               All Categories
