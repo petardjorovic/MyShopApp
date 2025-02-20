@@ -9,7 +9,7 @@ const allProducts = async (req, res, next) => {
   }
 };
 
-const singleProducts = async (req, res, next) => {
+const singleProduct = async (req, res, next) => {
   const { productId } = req.params;
   try {
     const [product] = await Product.find({ id: productId })
@@ -30,4 +30,4 @@ const allCategories = async (req, res, next) => {
   }
 };
 
-module.exports = { allProducts, singleProducts, allCategories };
+module.exports = { allProducts, singleProduct, allCategories };

@@ -15,13 +15,17 @@
     @apply bg-mainYellow text-blackTextColor text-xs font-medium me-2 px-2 py-0.5 rounded-full;
   }
 
+  .badge {
+    @apply bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm;
+  }
+
   .loader {
     @apply w-[75px] aspect-[1] rounded-full border-8 border-lightBlue border-r-mainYellow;
     animation: l2 1s infinite linear;
   }
 
   .heart-icon {
-    @apply inline-flex justify-center items-center rounded-full bg-gray-300 w-7 h-7 p-1;
+    @apply inline-flex justify-center items-center rounded-full bg-gray-300 w-8 h-8 p-1;
   }
 }
 
