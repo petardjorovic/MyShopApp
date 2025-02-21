@@ -4,20 +4,36 @@ import { Link } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import noImage from "../assets/no-image.jpg";
 
-function SingleProductCardComponent({ product }) {
+function SingleProductCardComponent({ product, activeView }) {
   const [isLiked, setIsLiked] = useState(false);
 
   function handleLike() {
     setIsLiked(!isLiked);
   }
   return (
-    <div className="w-[300px] h-[350px] border-2 border-slate-300 rounded-xl hover:border-slate-500 transition-all duration-300 overflow-hidden shadow-lg">
-      <div className="relative w-full h-full lg:h-[60%]">
+    <div
+      className={
+        activeView === "gridView"
+          ? "w-[300px] h-[350px] border-2 border-slate-300 rounded-xl hover:border-slate-500 transition-all duration-300 overflow-hidden shadow-lg"
+          : "flex items-center justify-between gap-[15px] w-full h-[200px] border-b border-mainBlue px-[16px]"
+      }
+    >
+      <div
+        className={
+          activeView === "gridView"
+            ? "relative w-full h-[60%]"
+            : "relative w-[15%]"
+        }
+      >
         <Link to={`/singleProduct/${product.id}`}>
           <img
             src={product.thumbnail ? product.thumbnail : noImage}
             alt={product.title}
-            className="h-full w-full object-contain rounded-t-xl hover:scale-110 transition-all duration-300"
+            className={
+              activeView === "gridView"
+                ? "h-full w-full object-contain rounded-t-xl hover:scale-105 transition-all duration-300"
+                : "w-[100px] h-[150px ]"
+            }
           />
         </Link>
         {/* overlay */}
@@ -28,14 +44,26 @@ function SingleProductCardComponent({ product }) {
         )} */}
       </div>
 
-      <div className="h-[40%] flex flex-col items-start justify-between w-full px-[10px] py-[15px] relative">
+      <div
+        className={
+          activeView === "gridView"
+            ? "h-[40%] flex flex-col items-start justify-between w-full px-[10px] py-[15px] relative"
+            : "flex items-center justify-between w-[80%]"
+        }
+      >
         <Link
           to={`/singleProduct/${product.id}`}
           className="text-mainBlue font-semibold text-lg cursor-pointer"
         >
           {product.title}
         </Link>
-        <p className="flex-center gap-[10px]">
+        <p
+          className={
+            activeView === "gridView"
+              ? "flex-center gap-[10px]"
+              : "hidden md:flex"
+          }
+        >
           {" "}
           <Rating
             name="half-rating-read"
@@ -50,7 +78,11 @@ function SingleProductCardComponent({ product }) {
           ${product.price}
         </p>
         <div
-          className="heart-icon absolute bottom-[25px] right-[15px] cursor-pointer"
+          className={
+            activeView === "gridView"
+              ? "heart-icon absolute bottom-[25px] right-[15px] cursor-pointer"
+              : "hidden"
+          }
           onClick={handleLike}
         >
           {isLiked ? (

@@ -3,11 +3,13 @@ import ProductsServices from "../services/productsServices";
 import { useDispatch, useSelector } from "react-redux";
 import { handleAllCategories } from "../store/categoriesSlice";
 import { toast } from "react-toastify";
+import { setNewCategory } from "../store/productsSlice";
 
 function CategoryComponent() {
   const dispatch = useDispatch();
   const [isActiveCategory, setIsActiveCategory] = useState(false);
   const { categories } = useSelector((state) => state.categoriesStore);
+  const { currentCategory } = useSelector((state) => state.productsStore);
 
   useEffect(() => {
     ProductsServices.getAllCategories()
@@ -32,7 +34,17 @@ function CategoryComponent() {
         </button>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-[10px]">
           {isActiveCategory ? (
-            <li className="bg-mainBlue px-[24px] py-[12px] text-center cursor-pointer rounded-lg text-whiteTextColor w-[250px] hover:bg-mainYellow transition-all duration-300">
+            <li
+              onClick={() => {
+                dispatch(setNewCategory("All Products"));
+                setIsActiveCategory(false);
+              }}
+              className={`${
+                currentCategory === "All Products"
+                  ? "bg-mainYellow"
+                  : "bg-mainBlue"
+              } px-[24px] py-[12px] text-center cursor-pointer rounded-lg text-whiteTextColor w-[250px] hover:bg-mainYellow transition-all duration-300`}
+            >
               All Categories
             </li>
           ) : null}
@@ -40,7 +52,13 @@ function CategoryComponent() {
             ? categories.map((el, i) => {
                 return (
                   <li
-                    className="bg-mainBlue px-[24px] py-[12px] cursor-pointer rounded-lg text-center text-whiteTextColor w-[250px] hover:bg-mainYellow transition-all duration-300"
+                    onClick={() => {
+                      dispatch(setNewCategory(el));
+                      setIsActiveCategory(false);
+                    }}
+                    className={`${
+                      currentCategory === el ? "bg-mainYellow" : "bg-mainBlue"
+                    } px-[24px] py-[12px] cursor-pointer rounded-lg text-center text-whiteTextColor w-[250px] hover:bg-mainYellow transition-all duration-300`}
                     key={i}
                   >
                     {el}

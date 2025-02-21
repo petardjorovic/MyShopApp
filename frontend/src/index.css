@@ -24,6 +24,10 @@
     animation: l2 1s infinite linear;
   }
 
+  .layoutView {
+    @apply bg-mainBlue p-[5px] text-whiteTextColor rounded-[10px];
+  }
+
   .heart-icon {
     @apply inline-flex justify-center items-center rounded-full bg-gray-300 w-8 h-8 p-1;
   }
