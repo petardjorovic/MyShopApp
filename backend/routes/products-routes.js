@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const productsController = require("../controllers/productsController");
 
-router.get("/categories", productsController.allCategories);
+router.get("/category-list", productsController.allCategories);
 
 router.get(
-  "/categories/:category",
+  "/category/:categoryName",
   productsController.getAllProductsByCategory
 );
 

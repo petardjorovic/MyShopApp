@@ -30,12 +30,12 @@ const cartSlice = createSlice({
           cartTotal: action.payload.price,
         });
         state.totalProducts++;
-        state.totalAmount = action.payload.price;
+        state.totalAmount = subTotal(copyArray);
       } else {
         copyArray[findIndex].count++;
         copyArray[findIndex].cartTotal += action.payload.price;
 
-        state.totalAmount += action.payload.price;
+        state.totalAmount = subTotal(copyArray);
       }
 
       state.cart = copyArray;
@@ -55,7 +55,7 @@ const cartSlice = createSlice({
       const copyArray = [...state.cart];
       copyArray[index].cartTotal += copyArray[index].price * increament;
 
-      state.totalAmount = subTotal(copyArray);
+      state.totalAmount = Number(subTotal(copyArray).toFixed(2));
 
       if (copyArray[index].count === 1 && increament === -1) {
         copyArray.splice(index, 1);

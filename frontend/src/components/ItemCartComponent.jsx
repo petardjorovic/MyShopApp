@@ -51,7 +51,7 @@ function ItemCartComponent({ product, index }) {
         </button>
       </div>
       {/* Cart Total */}
-      <p>${product.cartTotal}</p>
+      <p>${product.cartTotal.toFixed(2)}</p>
       <RxCrossCircled
         color="red"
         size={25}

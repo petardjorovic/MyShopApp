@@ -12,12 +12,14 @@ import logo from "../assets/Logo.svg";
 
 // icons
 import { CiUser, CiHeart, CiShoppingCart } from "react-icons/ci";
+import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CategoryComponent from "./CategoryComponent";
 import { useSelector } from "react-redux";
 
 function NavbarComponent() {
   const { totalProducts } = useSelector((state) => state.cartStore);
+  const { totalFavorites } = useSelector((state) => state.favoriteStore);
   return (
     <div className="">
       <HeadingTopComponent />
@@ -64,15 +66,15 @@ function NavbarComponent() {
               <li className="flex-center gap-[10px]">
                 <div className="flex-center">
                   <CiHeart size={25} color="white" />
-                  <span className="badge-counter">0</span>
+                  <span className="badge-counter">{totalFavorites}</span>
                 </div>
-                <Link to={"/"} className="text-whiteTextColor">
+                <Link to={"/favorite"} className="text-whiteTextColor">
                   Favorites
                 </Link>
               </li>
               <li className="flex-center gap-[10px]">
                 <div className="flex-center">
-                  <CiShoppingCart size={25} color="white" />
+                  <MdOutlineShoppingCart size={22} color="white" />
                   <span className="badge-counter">{totalProducts}</span>
                 </div>
                 <Link to={"/cart"} className="text-whiteTextColor">

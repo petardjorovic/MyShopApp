@@ -4,11 +4,13 @@ import ProductsServices from "../services/productsServices";
 import LoaderComponent from "../components/LoaderComponent";
 import { Rating } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 // icons
 import { FaCheck, FaHeart, FaRegHeart } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { saveItemInCartAction } from "../store/cartSlice";
+import { saveFavoriteAction } from "../store/favoriteSlice";
 
 function SingleProductPage() {
   // * uzmi productId
@@ -17,6 +19,37 @@ function SingleProductPage() {
   const [currentImage, setCurrentImage] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
+  const { allFavorites } = useSelector((state) => state.favoriteStore);
+  const [heartColor, setHeartColor] = useState(null);
+
+  const fadeInAnimationVariantsLeft = {
+    initial: {
+      opacity: 0,
+      x: -100,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+    },
+    transition: {
+      delay: 0.1,
+      duration: 1.5,
+    },
+  };
+  const fadeInAnimationVariantsRight = {
+    initial: {
+      opacity: 0,
+      x: 100,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+    },
+    transition: {
+      delay: 0.1,
+      duration: 1.5,
+    },
+  };
 
   useEffect(() => {
     ProductsServices.getSingleProduct(productId)
@@ -27,6 +60,14 @@ function SingleProductPage() {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    allFavorites.find((el, i) => {
+      if (el.id === productId) {
+        setHeartColor(true);
+      }
+    });
+  }, [allFavorites]);
+
   function handleCurrentImage(index) {
     setCurrentImage(index);
   }
@@ -34,12 +75,35 @@ function SingleProductPage() {
   function handleAddToCart() {
     dispatch(saveItemInCartAction(singleProduct));
   }
+
+  function handleAddToFavorite() {
+    dispatch(saveFavoriteAction(singleProduct));
+  }
+
+  function checkIsLiked() {
+    setHeartColor(false);
+    allFavorites.forEach((el, i) => {
+      if (el.id == productId) {
+        setHeartColor(true);
+        return;
+      }
+    });
+  }
+
+  useEffect(() => {
+    checkIsLiked();
+  }, [allFavorites]);
   return (
     <div className="">
       {isLoaded ? (
         <div className="container mx-auto flex flex-col items-start md:flex-row px-[15px] my-[50px] gap-[10px]">
           {/* left side */}
-          <div className="w-full md:w-[50%] items-center flex flex-col gap-[20px]">
+          <motion.div
+            variants={fadeInAnimationVariantsLeft}
+            initial="initial"
+            whileInView="animate"
+            className="w-full md:w-[50%] items-center flex flex-col gap-[20px]"
+          >
             <img
               src={singleProduct.images[currentImage]}
               alt={singleProduct.title}
@@ -60,9 +124,14 @@ function SingleProductPage() {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
           {/* right side */}
-          <div className="w-full md:w-[50%] flex items-center flex-col gap-[30px]">
+          <motion.div
+            variants={fadeInAnimationVariantsRight}
+            initial="initial"
+            whileInView="animate"
+            className="w-full md:w-[50%] flex items-center flex-col gap-[30px]"
+          >
             {/* top div */}
             <div className="w-[80%] border-b border-mainBlue flex flex-col items-start gap-[20px] py-[20px]">
               <h2 className="font-extrabold text-mainBlue text-2xl">
@@ -118,14 +187,24 @@ function SingleProductPage() {
                   Add to Cart
                 </Link>
                 <Link
-                  to={"/"}
+                  to={"/favorite"}
+                  onClick={handleAddToFavorite}
                   className="bg-lightBlue px-[20px] py-[10px] rounded-xl border border-mainBlue shadow-md"
                 >
-                  <FaRegHeart size={28} color="#003F62" />
+                  {allFavorites.forEach((el, i) => {
+                    if (el.id == productId) {
+                      return <FaHeart size={28} color="red" />;
+                    }
+                  })}
+                  {heartColor ? (
+                    <FaHeart size={28} color="red" />
+                  ) : (
+                    <FaRegHeart size={28} color="#003F62" />
+                  )}
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       ) : (
         <LoaderComponent />

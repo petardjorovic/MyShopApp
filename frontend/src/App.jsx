@@ -2,8 +2,10 @@ import axios from "axios";
 import NavbarComponent from "./components/NavbarComponent";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import FooterComponent from "./components/FooterComponent";
 
-axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://dummyjson.com";
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Outlet />
       <ToastContainer />
       {/* //TODO: Footer */}
+      <FooterComponent />
     </div>
   );
 }

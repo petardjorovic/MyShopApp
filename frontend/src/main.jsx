@@ -3,6 +3,9 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ClerkProvider } from "@clerk/clerk-react";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
 
 // pages
 import HomePage from "./pages/HomePage.jsx";
@@ -10,9 +13,7 @@ import ProductsPage from "./pages/ProductsPage.jsx";
 import SingleProductPage from "./pages/SingleProductPage.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
-import { ClerkProvider } from "@clerk/clerk-react";
-import { Provider } from "react-redux";
-import store from "./store/store.js";
+import FavoritePage from "./pages/FavoritePage.jsx";
 
 // * clerk
 // Import your Publishable Key
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <CartPage />,
+      },
+      {
+        path: "/favorite",
+        element: <FavoritePage />,
       },
     ],
   },

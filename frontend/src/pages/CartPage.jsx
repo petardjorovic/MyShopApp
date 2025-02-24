@@ -45,7 +45,10 @@ function CartPage() {
             {/* dodji deo */}
             <div className="flex flex-col gap-[20px] items-center">
               <p className="text-2xl text-center">
-                ${currentCoupon === "PetarDj" ? totalAmount / 2 : totalAmount}
+                $
+                {currentCoupon === "PetarDj"
+                  ? (totalAmount / 2).toFixed(2)
+                  : totalAmount.toFixed(2)}
               </p>
               {/* coupon */}
               <p>Insert Coupon for 50% discount</p>

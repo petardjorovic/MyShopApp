@@ -3,7 +3,7 @@ const Product = require("../models/ProductModel");
 const allProducts = async (req, res, next) => {
   try {
     const products = await Product.find().lean().select("-_id");
-    res.send(products);
+    res.send({ products });
   } catch (error) {
     console.log(err);
   }
@@ -32,11 +32,11 @@ const allCategories = async (req, res, next) => {
 
 const getAllProductsByCategory = async (req, res) => {
   try {
-    const { category } = req.params;
-    const products = await Product.find({ category: category });
-    res.send(products);
+    const { categoryName } = req.params;
+    const products = await Product.find({ category: categoryName });
+    res.send({ products });
   } catch (error) {
-    console.log(err);
+    console.log(error);
   }
 };
 

@@ -21,7 +21,7 @@ function HomePage() {
   useEffect(() => {
     ProductsServices.getAllProducts(currentCategory)
       .then((res) => {
-        dispatch(handleAllProducts(res.data));
+        dispatch(handleAllProducts(res.data.products));
         setIsLoaded(true);
       })
       .catch((err) => {

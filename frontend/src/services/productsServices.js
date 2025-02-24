@@ -5,11 +5,11 @@ class ProductsServices {
     if (category === "All Products") {
       return axios.get("/products");
     } else {
-      return axios.get("/products/categories/" + category);
+      return axios.get("/products/category/" + category);
     }
   };
   static getSingleProduct = (productId) => axios.get("/products/" + productId);
-  static getAllCategories = () => axios.get("/products/categories");
+  static getAllCategories = () => axios.get("/products/category-list");
 }
 
 export default ProductsServices;
