@@ -35,34 +35,34 @@ function NavbarComponent() {
             <input
               type="text"
               placeholder="Search product"
-              className="bg-transparent px-[10px] md:p-[25px] py-[17px] outline-none"
+              className="bg-transparent px-[10px] md:px-[25px] py-[17px] outline-none"
             />
-            <button className="bg-mainYellow text-whiteTextColor px-[10px] md:p-[25] py-[17px] rounded-[20px]">
+            <button className="bg-mainYellow text-whiteTextColor px-[10px] md:px-[25] py-[17px] rounded-[20px]">
               Search
             </button>
           </div>
 
           {/* links */}
-          <div>
+          <div className="flex-center flex-col md:flex-row gap-[20px]">
+            <div className="flex-center gap-[10px]">
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton
+                  showName={true}
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-[40px] h-[40px]",
+                    },
+                    variables: {
+                      colorText: "#EDA415",
+                    },
+                  }}
+                />
+              </SignedIn>
+            </div>
             <ul className="flex-center gap-[20px]">
-              <li className="flex-center gap-[10px]">
-                <SignedOut>
-                  <SignInButton />
-                </SignedOut>
-                <SignedIn>
-                  <UserButton
-                    showName={true}
-                    appearance={{
-                      elements: {
-                        avatarBox: "w-[40px] h-[40px]",
-                      },
-                      variables: {
-                        colorText: "#EDA415",
-                      },
-                    }}
-                  />
-                </SignedIn>
-              </li>
               <li className="flex-center gap-[10px]">
                 <div className="flex-center">
                   <CiHeart size={25} color="white" />

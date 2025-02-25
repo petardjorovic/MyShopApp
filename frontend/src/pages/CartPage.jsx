@@ -44,7 +44,7 @@ function CartPage() {
             </div>
             {/* dodji deo */}
             <div className="flex flex-col gap-[20px] items-center">
-              <p className="text-2xl text-center">
+              <p className="text-2xl font-bold text-center">
                 $
                 {currentCoupon === "PetarDj"
                   ? (totalAmount / 2).toFixed(2)
