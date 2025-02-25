@@ -1,4 +1,4 @@
-import logo from "../assets/Logo.svg";
+import logo from "../assets/logo.svg";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { FaHeadphonesSimple } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
