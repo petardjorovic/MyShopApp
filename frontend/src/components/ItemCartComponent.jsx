@@ -22,8 +22,6 @@ function ItemCartComponent({ product, index }) {
         {/*Property of product */}
         <div className="">
           <h2>{product.title}</h2>
-          <p>{product.category}</p>
-          <p>{product.stock}</p>
         </div>
       </div>
       {/* Price */}
@@ -31,18 +29,18 @@ function ItemCartComponent({ product, index }) {
       {/*Quantity buttons */}
       <div className="flex-center">
         <button
-          className="w-[30px] px-[8px] py-[4px] border border-slate-400 text-[18px] bg-gray-200 flex flex-center justify-center rounded-sm rounded-r-none"
+          className="w-[15px] px-[8px] py-[4px] border border-slate-400 text-[18px] bg-gray-200 flex flex-center justify-center rounded-sm rounded-r-none"
           onClick={() =>
             dispatch(setPriceHandlerAction({ increament: 1, index }))
           }
         >
           +
         </button>
-        <span className="w-[50px] px-[8px] py-[4px] border-t border-slate-400 border-b  text-[18px] bg-gray-200 flex flex-center justify-center">
+        <span className="w-[25px] px-[8px] py-[4px] border-t border-slate-400 border-b  text-[18px] bg-gray-200 flex flex-center justify-center">
           {product.count}
         </span>
         <button
-          className="w-[30px] px-[8px] py-[4px] border border-slate-400 text-[18px] bg-gray-200 flex flex-center justify-center rounded-sm rounded-l-none"
+          className="w-[15px] px-[8px] py-[4px] border border-slate-400 text-[18px] bg-gray-200 flex flex-center justify-center rounded-sm rounded-l-none"
           onClick={() =>
             dispatch(setPriceHandlerAction({ increament: -1, index }))
           }
@@ -55,7 +53,7 @@ function ItemCartComponent({ product, index }) {
       <RxCrossCircled
         color="red"
         size={25}
-        className="absolute top-[0] right-[15px] cursor-pointer"
+        className="absolute top-[-10px] right-[5px] cursor-pointer"
         onClick={removeItemCart}
       />
     </div>
