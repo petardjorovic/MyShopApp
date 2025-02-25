@@ -187,9 +187,9 @@ function SingleProductPage() {
                   Add to Cart
                 </Link>
                 <Link
-                  to={"/favorite"}
                   onClick={handleAddToFavorite}
                   className="bg-lightBlue px-[20px] py-[10px] rounded-xl border border-mainBlue shadow-md"
+                  to={"/favorite"}
                 >
                   {allFavorites.forEach((el, i) => {
                     if (el.id == productId) {
