@@ -39,32 +39,42 @@ function FooterComponent() {
           {/* bottom right */}
           <div className="flex items-start w-full justify-between">
             <div className="flex flex-col gap-[10px]">
-              <h5 className="text-mainBlue text-2xl font-bold">
+              <h5 className="text-mainBlue text-xl md:text-2xl font-bold">
                 Find Products
               </h5>
-              <p className="text-mainBlue text-lg">Brownze arnold</p>
-              <p className="text-mainBlue text-lg">Chronograph blue</p>
-              <p className="text-mainBlue text-lg">Smart phones</p>
-              <p className="text-mainBlue text-lg">Watches</p>
-              <p className="text-mainBlue text-lg">Glasses</p>
-              <p className="text-mainBlue text-lg">Fragrances</p>
+              <p className="text-mainBlue text-sm md:base">Brownze arnold</p>
+              <p className="text-mainBlue text-sm md:base">Chronograph blue</p>
+              <p className="text-mainBlue text-sm md:base">Smart phones</p>
+              <p className="text-mainBlue text-sm md:base">Watches</p>
+              <p className="text-mainBlue text-sm md:base">Glasses</p>
+              <p className="text-mainBlue text-sm md:base">Fragrances</p>
             </div>
             <div className="flex flex-col gap-[10px]">
-              <h5 className="text-mainBlue text-2xl font-bold">Get Help</h5>
-              <p className="text-mainBlue text-lg">Help & FAQs</p>
-              <p className="text-mainBlue text-lg">Track Order</p>
-              <p className="text-mainBlue text-lg">Corporate & Bulk Orders</p>
-              <p className="text-mainBlue text-lg">Returns & Refunds</p>
-              <p className="text-mainBlue text-lg">Shipping & Delivery</p>
+              <h5 className="text-mainBlue text-xl md:text-2xl font-bold">
+                Get Help
+              </h5>
+              <p className="text-mainBlue text-sm md:base">Help & FAQs</p>
+              <p className="text-mainBlue text-sm md:base">Track Order</p>
+              <p className="text-mainBlue text-sm md:base">
+                Corporate & Bulk Orders
+              </p>
+              <p className="text-mainBlue text-sm md:base">Returns & Refunds</p>
+              <p className="text-mainBlue text-sm md:base">
+                Shipping & Delivery
+              </p>
             </div>
             <div className="flex flex-col gap-[10px]">
-              <h5 className="text-mainBlue text-2xl font-bold">About Us</h5>
-              <p className="text-mainBlue text-lg">About Us</p>
-              <p className="text-mainBlue text-lg">Careers</p>
-              <p className="text-mainBlue text-lg">Our Blog</p>
-              <p className="text-mainBlue text-lg">Terms & Conditions</p>
-              <p className="text-mainBlue text-lg">Privacy Policy</p>
-              <p className="text-mainBlue text-lg">Contact Us</p>
+              <h5 className="text-mainBlue text-xl md:text-2xl font-bold">
+                About Us
+              </h5>
+              <p className="text-mainBlue text-sm md:base">About Us</p>
+              <p className="text-mainBlue text-sm md:base">Careers</p>
+              <p className="text-mainBlue text-sm md:base">Our Blog</p>
+              <p className="text-mainBlue text-sm md:base">
+                Terms & Conditions
+              </p>
+              <p className="text-mainBlue text-sm md:base">Privacy Policy</p>
+              <p className="text-mainBlue text-sm md:base">Contact Us</p>
             </div>
           </div>
         </div>

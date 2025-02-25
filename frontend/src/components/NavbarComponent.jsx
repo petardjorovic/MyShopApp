@@ -31,13 +31,13 @@ function NavbarComponent() {
           </Link>
 
           {/* search bar */}
-          <div className="bg-whiteTextColor rounded-[20px]">
+          <div className="bg-whiteTextColor rounded-[20px] flex flex-row">
             <input
               type="text"
               placeholder="Search product"
-              className="bg-transparent px-[25px] py-[17px] outline-none"
+              className="bg-transparent px-[10px] md:p-[25px] py-[17px] outline-none"
             />
-            <button className="bg-mainYellow text-whiteTextColor px-[25px] py-[17px] rounded-[20px]">
+            <button className="bg-mainYellow text-whiteTextColor px-[10px] md:p-[25] py-[17px] rounded-[20px]">
               Search
             </button>
           </div>
