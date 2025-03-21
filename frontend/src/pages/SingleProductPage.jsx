@@ -61,7 +61,7 @@ function SingleProductPage() {
   }, []);
 
   useEffect(() => {
-    allFavorites.find((el, i) => {
+    allFavorites.find((el) => {
       if (el.id === productId) {
         setHeartColor(true);
       }
@@ -82,7 +82,7 @@ function SingleProductPage() {
 
   function checkIsLiked() {
     setHeartColor(false);
-    allFavorites.forEach((el, i) => {
+    allFavorites.forEach((el) => {
       if (el.id == productId) {
         setHeartColor(true);
         return;
@@ -165,11 +165,13 @@ function SingleProductPage() {
                   </span>
                 )}
               </p>
-              <p className="text-[18px]">
-                Hurry up? only{" "}
-                <span className="font-bold">{singleProduct.stock}</span>{" "}
-                products left in stock
-              </p>
+              {singleProduct.stock > 0 && (
+                <p className="text-[18px]">
+                  Hurry up? only{" "}
+                  <span className="font-bold">{singleProduct.stock}</span>{" "}
+                  products left in stock
+                </p>
+              )}
             </div>
             {/* bottom div */}
             <div className="flex flex-col w-[80%] gap-[20px]">
@@ -191,7 +193,7 @@ function SingleProductPage() {
                   className="bg-lightBlue px-[20px] py-[10px] rounded-xl border border-mainBlue shadow-md"
                   to={"/favorite"}
                 >
-                  {allFavorites.forEach((el, i) => {
+                  {allFavorites.forEach((el) => {
                     if (el.id == productId) {
                       return <FaHeart size={28} color="red" />;
                     }
