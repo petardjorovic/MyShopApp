@@ -110,7 +110,7 @@ function SingleProductCardComponent({ product, activeView }) {
         <p className="text-blackTextColor font-bold text-3xl">
           ${product.price}
         </p>
-        {location.pathname === "/favorite" && (
+        {location.pathname === "/favorite" && product.stock > 0 && (
           <div
             className={
               activeView === "gridView"

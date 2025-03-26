@@ -181,13 +181,15 @@ function SingleProductPage() {
               </p>
               {/* ADD / Favorite button */}
               <div className="flex-center gap-[30px]">
-                <Link
-                  onClick={handleAddToCart}
-                  to={"/cart"}
-                  className="bg-mainYellow px-[24px] py-[12px] rounded-xl text-whiteTextColor shadow-md"
-                >
-                  Add to Cart
-                </Link>
+                {singleProduct.stock > 0 && (
+                  <Link
+                    onClick={handleAddToCart}
+                    to={"/cart"}
+                    className="bg-mainYellow px-[24px] py-[12px] rounded-xl text-whiteTextColor shadow-md"
+                  >
+                    Add to Cart
+                  </Link>
+                )}
                 <Link
                   onClick={handleAddToFavorite}
                   className="bg-lightBlue px-[20px] py-[10px] rounded-xl border border-mainBlue shadow-md"
